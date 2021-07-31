@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html nighteye="disabled">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=500, initial-scale=1">
+  <title>Stakeable - A DeFi staking ecosystem on BSC &#128136;</title>
+  <link rel="apple-touch-icon" href="./assets/stakeable.png">
+  <link rel="icon" href="./assets/stakeable.ico">
+  <meta name="theme-color" content="#fff">
+  <meta name="description" content="Stakeable is a simple, yet powerful DeFi staking ecosystem on Binance Smart Chain. Use STAKE tokens to earn up to 309.83% APY.">
+
+  <!-- CSS only -->
+  <link rel="stylesheet" href="./assets/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/ness.css">
+  <link rel="stylesheet" href="./assets/style.css">
+
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="./assets/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+  <script src="./assets/jquery.animateNumbers.min.js">
+  </script>
+  <script src="./assets/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+  </script>
+  <script src="./assets/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+  </script>
+
+  <script src="./assets/dialog-polyfill.js"></script>
+  <script src="./assets/moment.js"></script>
+  <script src="./assets/moment-timezone.js"></script>
+  <script src="./assets/decimal.js"></script>
+
+  <!-- Twitter -->
+  <meta name="twitter:image" content="banner.jpg">
+  <meta name="twitter:description" content="A simple, yet powerful DeFi staking ecosystem on Binance Smart Chain.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Stakeable - Staking Simplified">
+
+  <script src="./assets/web3.min.js"></script>
+  <script src="./assets/ui.js"></script>
+  <script src="./assets/y.js"></script>
+<link href="./assets/dialog-polyfill.css" rel="stylesheet">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LJMNKMDS03"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LJMNKMDS03');
+</script>
+
+</head>
+
+<body class="text-center vsc-initialized">
+  <div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
+    <header class="masthead mb-auto">
+      <div class="inner">
+        <p class="logo">Stakeable.finance</p>
+        <!-- <nav class="nav justify-content-center w700">
+          <a class="nav-link" href="https://stakeable.finance/#home" onclick="nav(&#39;home&#39;)">Home</a>
+          <a class="nav-link" href="https://stakeable.finance/#farm" onclick="nav(&#39;farms&#39;)">Buy &amp; Farm</a>
+          <a class="nav-link" href="https://stakeable.finance/#about" onclick="nav(&#39;about&#39;)">About</a>
+          <a class="nav-link" href="https://stakeable.finance/#faq" onclick="nav(&#39;faq&#39;)">FAQ</a>
+        </nav> -->
+      </div>
+      <p class="lead">
+        <a href="https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x5eC2A778717Cf1A5018C6aE3A7A2957582A92007" class="nes-btn is-primary w700 mr-4" target="_blank">Buy on PCSv2</a>
+        <a href="https://t.me/Stakeable" class="nes-btn is-secondary w700" target="_blank">Join Telegram</a>
+      </p>
+    </header>
+    <main role="main" class="inner cover home" style="display: block">
+      <img class="mb-4" src="./assets/stakeable.png" height="150">
+      <h1 class="cover-heading">Stakeable</h1>
+      <h2 class="greeting text-muted text-center mx-auto" style="width: 400px;">A simple, yet powerful DeFi staking ecosystem on Binance Smart Chain.</h2>
+      <p class="lead"></p>
+
+      <p class="lead web3false">
+        <span class="nes-btn is-primary w700" onclick="connectWeb3()">Connect Wallet</span>
+      </p>
+
+    <div class="row row-cards">
+        <div class="nes-container nescard col-sm mx-2 hide web3true">
+          <h6 class="card-subtitle mb-2">Available</h6>
+          <h2 class="card-text"><span class="w700 sblue unlockedAmount">0</span></h2>
+        </div>
+
+        <div class="nes-container nescard col-sm mx-2 hide web3true">
+          <h6 class="card-subtitle mb-2">Locked</h6>
+          <h2 class="card-text"><span class="w700 sblue lockedYield">0</span></h2>
+        </div>
+
+        <div class="nes-container nescard col-sm mx-2 hide web3true">
+            <h6 class="card-subtitle mb-2">Unlocks On</h6>
+            <h2 class="card-text"><span class="w700 sblue lockedUntil">NaN</span></h2>
+            <span class="card-link nes-btn is-primary w700 farm-btn d-none unstake" onclick="unstake()">
+                Unstake
+            </span>
+          </div>
+      </div>
+
+      <div class="row row-cards">
+        <div class="nes-container nescard col-sm mx-2">
+          <h6 class="card-subtitle mb-2">STAKE Price</h6>
+          <h2 class="card-text"><span class="w700 sblue tokenprice">$0.0000116441</span></h2>
+        </div>
+
+        
+        <div class="nes-container nescard col-sm mx-2">
+            <h6 class="card-subtitle mb-2">Circ. Supply</h6>
+            <h2 class="card-text"><span class="w700 sblue supply">1,000,000,000</span></h2>
+          </div>
+      </div>
+
+      <div class="row row-cards">
+        <div class="nes-container nescard col-sm mx-2">
+            <h6 class="card-subtitle mb-2">Market Cap</h6>
+            <h2 class="card-text"><span class="w700 sblue mcap">$11,644</span></h2>
+          </div>
+    
+          <div class="nes-container nescard col-sm mx-2">
+            <h6 class="card-subtitle mb-2">Total Staked</h6>
+            <h2 class="card-text"><span class="w700 sblue valuestaked">$3,513</span></h2>
+          </div>
+      </div>
+
+      
+
+      
+
+      <!-- <div class="top-m20">
+        <section class="nes-container with-title talign-left">
+          <h3 class="title">Announcements</h3>
+          <p>2-Nov - <a href="#" class="classic">Text</a></p>
+        </section>
+      </div> -->
+    </main>
+
+    <main role="main" class="inner cover about" style="display: block;">
+        <h1 class="cover-heading">What is Stakeable?</h1>
+  
+        <div class="row nes-container bottom-m20 sp">
+          <p style="text-align: left">
+            Stakeable Finance is a simple yet powerful smart contract on Binance Smart Chain. It was deployed with one single intention: to create a staking mechanism offering some of the most attractive yields in DeFi.
+          </p>
+          <p style="text-align: left">
+            90% of supply was minted to serve as rewards for staking. To farm rewards, you need to purchase Stakeable (STAKE) tokens, lock them for your desired period of time and receive back the initial amount plus yield after the lock-up period expires.
+          </p>
+        </div>
+      </main>
+
+
+    
+    <main role="main" class="inner cover farms" style="display: block;">
+        <h1 class="cover-heading">Staking Pools</h1>
+
+          <div class="row row-cards">
+            <div class="nes-container nescard">
+                <!-- <span class="badge badge-primary yield-badge"><span class="pool1bonus">0%</span> Bonus</span> -->
+                <div class="card-body no-pad">
+                  <div class="tokenpair">
+                    <img class="icn" src="./assets/planets/saturn.png" alt="">
+                  </div>
+                  <h6 class="card-subtitle mb-2 text-muted">Saturn Pool</h6>
+                  <h2 class="card-text apy0">
+                    APY <span class="pool6apy">0%</span>
+                  </h2>
+                  <h2 class="card-text apy0">360 Day Staking</h2>
+                  <p class="mb-0 text-muted small">Avail. Balance: <span class="unlockedAmount"></span></p>
+                  <p class="mb-0 text-muted small">360 Day Yield: <span class="pool6yield"></span></p>
+                  <p class="text-muted small">Final Balance: <span class="pool6final"></span></p>
+                  <span onclick="stake(days(360))" class="card-link nes-btn is-primary w700 farm-btn">Stake</span>
+                </div>
+              </div>
+
+            <div class="nes-container nescard">
+                <!-- <span class="badge badge-primary yield-badge"><span class="pool1bonus">0%</span> Bonus</span> -->
+                <div class="card-body no-pad">
+                  <div class="tokenpair">
+                    <img class="icn" src="./assets/planets/jupiter.png" alt="">
+                  </div>
+                  <h6 class="card-subtitle mb-2 text-muted">Jupiter Pool</h6>
+                  <h2 class="card-text apy0">
+                    APY <span class="pool5apy">0%</span>
+                  </h2>
+                  <h2 class="card-text apy0">180 Day Staking</h2>
+                  <p class="mb-0 text-muted small">Avail. Balance: <span class="unlockedAmount"></span></p>
+                  <p class="mb-0 text-muted small">180 Day Yield: <span class="pool5yield"></span></p>
+                  <p class="text-muted small">Final Balance: <span class="pool5final"></span></p>
+                  <span onclick="stake(days(180))" class="card-link nes-btn is-primary w700 farm-btn">Stake</span>
+                </div>
+              </div>
+          </div>
+
+
+          <div class="row row-cards">
+            <div class="nes-container nescard">
+                <!-- <span class="badge badge-primary yield-badge"><span class="pool1bonus">0%</span> Bonus</span> -->
+                <div class="card-body no-pad">
+                  <div class="tokenpair">
+                    <img class="icn" src="./assets/planets/mercury.png" alt="">
+                  </div>
+                  <h6 class="card-subtitle mb-2 text-muted">Mercury Pool</h6>
+                  <h2 class="card-text apy0">
+                    APY <span class="pool4apy">0%</span>
+                  </h2>
+                  <h2 class="card-text apy0">90 Day Staking</h2>
+                  <p class="mb-0 text-muted small">Avail. Balance: <span class="unlockedAmount"></span></p>
+                  <p class="mb-0 text-muted small">90 Day Yield: <span class="pool4yield"></span></p>
+                  <p class="text-muted small">Final Balance: <span class="pool4final"></span></p>
+                  <span onclick="stake(days(90))" class="card-link nes-btn is-primary w700 farm-btn">Stake</span>
+                </div>
+              </div>
+
+            <div class="nes-container nescard">
+                <!-- <span class="badge badge-primary yield-badge"><span class="pool1bonus">0%</span> Bonus</span> -->
+                <div class="card-body no-pad">
+                  <div class="tokenpair">
+                    <img class="icn" src="./assets/planets/mars.png" alt="">
+                  </div>
+                  <h6 class="card-subtitle mb-2 text-muted">Mars Pool</h6>
+                  <h2 class="card-text apy0">
+                    APY <span class="pool3apy">0%</span>
+                  </h2>
+                  <h2 class="card-text apy0">60 Day Staking</h2>
+                  <p class="mb-0 text-muted small">Avail. Balance: <span class="unlockedAmount"></span></p>
+                  <p class="mb-0 text-muted small">60 Day Yield: <span class="pool3yield"></span></p>
+                  <p class="text-muted small">Final Balance: <span class="pool3final"></span></p>
+                  <span onclick="stake(days(60))" class="card-link nes-btn is-primary w700 farm-btn">Stake</span>
+                </div>
+              </div>
+          </div>
+
+
+
+          <div class="row row-cards">
+            <div class="nes-container nescard">
+                <!-- <span class="badge badge-primary yield-badge"><span class="pool1bonus">0%</span> Bonus</span> -->
+                <div class="card-body no-pad">
+                  <div class="tokenpair">
+                    <img class="icn" src="./assets/planets/venus.png" alt="">
+                  </div>
+                  <h6 class="card-subtitle mb-2 text-muted">Venus Pool</h6>
+                  <h2 class="card-text apy0">
+                    APY <span class="pool2apy">0%</span>
+                  </h2>
+                  <h2 class="card-text apy0">30 Day Staking</h2>
+                  <p class="mb-0 text-muted small">Avail. Balance: <span class="unlockedAmount"></span></p>
+                  <p class="mb-0 text-muted small">30 Day Yield: <span class="pool2yield"></span></p>
+                  <p class="text-muted small">Final Balance: <span class="pool2final"></span></p>
+                  <span onclick="stake(days(30))" class="card-link nes-btn is-primary w700 farm-btn">Stake</span>
+                </div>
+              </div>
+              
+          <div class="nes-container nescard">
+            <!-- <span class="badge badge-primary yield-badge"><span class="pool1bonus">0%</span> Bonus</span> -->
+            <div class="card-body no-pad">
+              <div class="tokenpair">
+                <img class="icn" src="./assets/planets/moon.png" alt="">
+              </div>
+              <h6 class="card-subtitle mb-2 text-muted">Moon Pool</h6>
+              <h2 class="card-text apy0">
+                APY <span class="pool1apy">0%</span>
+              </h2>
+              <h2 class="card-text apy0">7 Day Staking</h2>
+              <p class="mb-0 text-muted small">Avail. Balance: <span class="unlockedAmount"></span></p>
+              <p class="mb-0 text-muted small">7 Day Yield: <span class="pool1yield"></span></p>
+              <p class="text-muted small">Final Balance: <span class="pool1final"></span></p>
+              <span onclick="stake(days(7))" class="card-link nes-btn is-primary w700 farm-btn">Stake</span>
+            </div>
+          </div>
+        </div>
+
+    </main>
+
+    
+
+    <main role="main" class="inner cover faq" style="display: block;">
+      <h1 class="cover-heading">FAQ</h1>
+
+      <h2>General Questions</h2>
+
+      <div class="nes-container with-title is-rounded">
+        <p class="title">I've received 10,000 STAKE tokens, what does it mean?</p>
+        <p>We decided to assign 10,000 STAKE tokens to active wallets on BSC. This is a marketing "gimmick" to get users curious about Stakeable. The initial 10,000 tokens are locked forever. You cannot trade nor transfer them. Once you purchase STAKE tokens on PCS, they will replace your 10,000 "virtual tokens" with the purchased amount.</p>
+      </div>
+
+      <div class="nes-container with-title is-rounded">
+        <p class="title">What is the total Stakeable (STAKE) supply?</p>
+        <p>1,000,000,000 circulating / 10,000,000,000 total. 90% are dedicated to staking rewards. 7.5% was supplied as liquidity on PCS. 2.5% is reserved for marketing, listings, team and development.</p>
+      </div>
+
+      <div class="nes-container with-title is-rounded">
+        <p class="title">Who is behind Stakeable?</p>
+        <p>Stakeable was initially developed by a team of 3 devs from Switzerland. The developers decided to renounce the contract, burn all LP tokens and leave the project to the community.</p>
+      </div>
+
+      <div class="nes-container with-title is-rounded">
+        <p class="title">What was the presale price for Stakeable?</p>
+        <p>There wasn’t a presale. 7.5% of tokens were made public on PCS and approx. 90% of tokens are owned by the ZERO-address, to be used as staking rewards.</p>
+      </div>
+
+
+      <h2>Staking</h2>
+
+      <div class="nes-container with-title is-rounded">
+        <p class="title">How can I stake and farm STAKE tokens?</p>
+        <p>Stakeable was launched with the goal to make staking as simple as possible. You purchase STAKE tokens on PCSv2, choose your desired lock-up period and stake the tokens. After the lock-up period expires, you receive your inital amount plus yield.</p>
+      </div>
+
+      <div class="nes-container with-title is-rounded">
+        <p class="title">Where is the yield coming from?</p>
+        <p>Stakeable is trying something that was never done yet before. 90% of minted tokens are allocaed for yield rewards.</p>
+      </div>
+
+      <div class="nes-container with-title is-rounded">
+        <p class="title">Is there a minimum and maximum duration to stake?</p>
+        <p>There is a minimum duration of 7 days. The current maximum is 360 days.</p>
+      </div>
+
+      <div class="nes-container with-title is-rounded">
+        <p class="title">Is it possible that rewards will increase/decrease?</p>
+        <p>Stakeable reward rates (BaseRate and BonusRate) might get adjusted during the first couple of weeks.</p>
+      </div>
+
+      <div class="nes-container with-title is-rounded">
+        <p class="title">What is the highest yielding option?</p>
+        <p>The Saturn Pool is currently the option with the highest yield. Keep in mind that your tokens won't be accessible for the locked period of 360 days.</p>
+      </div>
+
+      <div class="nes-container with-title is-rounded">
+        <p class="title">Can I get staked tokens back before the lock-up period expires?</p>
+        <p>If you've locked STAKE tokens for a period, you cannot unlock (unstake) them before this period ends.</p>
+      </div>
+
+      <div class="nes-container with-title is-rounded">
+        <p class="title">When are staking rewards distributed?</p>
+        <p>You will see the rewards reflected every 24 hours in your balance (wallet or block explorer). The balance won't be accessible however, until your chosen staking period expires.</p>
+      </div>
+
+      <div class="nes-container with-title is-rounded">
+        <p class="title">Can I restake tokens or change the staking period?</p>
+        <p>You cannot add to your initial stake. You can only have one stake lock per wallet (create a new wallet, if you want to stake additional tokens). You can't change the initially chosen period either (only once you unstake after the staking period expires).</p>
+      </div>
+
+      <div class="nes-container with-title is-rounded">
+        <p class="title">What happens if I buy additional tokens, after staking?</p>
+        <p>Every wallet has two STAKE balances: one that is locked, and one that is unlocked. When you buy STAKE tokens, tokens are unlocked. Once you decide to stake tokens, your tokens become locked. Your wallet will always show the sum of these two balances. You can see how many STACK tokens you have locked or unlocked on <a href="https://stakeable.finance">https://stakeable.finance</a>.</p>
+      </div>
+
+      <div class="nes-container with-title is-rounded">
+        <p class="title">Can I stake a partial amount?</p>
+        <p>This functionality will be available soon. At the moment, you can only stake your total balance. If you'd like stake a fraction, create a second wallet and use it for staking (and the first for trading, etc).</p>
+      </div>
+
+      <h2>Project</h2>
+
+      <div class="nes-container with-title is-rounded">
+        <p class="title">What is the Stakeable roadmap?</p>
+        <p>Growing the community, marketing and exchange listings. Underpromise, overdeliver.</p>
+      </div>
+
+      <div class="nes-container with-title is-rounded">
+        <p class="title">How to contribute or join the community?</p>
+        <p><a href="https://t.me/Stakeable">Join our Telegram</a> and talk to our community leads.</p>
+      </div>
+
+      <div class="nes-container with-title is-rounded">
+        <p class="title">What is the Stakeable contract address?</p>
+        <p>The BSC contract is 0x5ec2a778717cf1a5018c6ae3a7a2957582a92007 and you can buy tokens on <a href="https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x5eC2A778717Cf1A5018C6aE3A7A2957582A92007">PancakeSwapV2</a>.</p>
+      </div>
+
+      <div class="nes-container with-title is-rounded">
+        <p class="title">How to buy Stakeable (STAKE) tokens?</p>
+        <p>Buy BNB on TrustWallet or Binance, and purchase Stakeable (STAKE) tokens on <a href="https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x5eC2A778717Cf1A5018C6aE3A7A2957582A92007">PancakeSwapV2</a>.</p>
+      </div>
+
+    </main>
+
+    <footer>
+      <div>
+        <nav>
+          <a href="https://bscscan.com/token/0x5ec2a778717cf1a5018c6ae3a7a2957582a92007" target="_blank">Token
+            contract</a>
+        <a href="https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x5eC2A778717Cf1A5018C6aE3A7A2957582A92007" target="_blank">PancakeSwapV2</a>
+        <a href="#" target="_blank">CoinMarketCap (TBA!)</a>
+        </nav>
+        <nav>
+          <!-- <a href="https://github.com/stakeable_finance/" target="_blank">
+            <img src="./assets/github.svg" alt="Github" class="footer-icon">
+          </a> -->
+          <a href="https://twitter.com/Stakeable" target="_blank">
+            <img src="./assets/twitter.svg" alt="Twitter" class="footer-icon">
+          </a>
+          <a href="https://t.me/Stakeable" target="_blank">
+            <img src="./assets/telegram.svg" alt="Telegram" class="footer-icon">
+          </a>
+          <!-- <a href="https://discord.gg/" target="_blank">
+            <img src="./assets/discord.svg" alt="Discord" class="footer-icon">
+          </a> -->
+        </nav>
+      </div>
+    </footer>
+
+    <!-- <dialog class="nes-dialog" id="tos-modal" style="display: none;">
+      <form method="dialog">
+        <div>
+          <p style="font-size:22px;">Title</p>
+          <p>Description</p>
+          <p>Description</p>
+          <p>
+            <label>
+              <input type="checkbox" class="nes-checkbox" name="tos-accepted" onchange="tosModalValidate()">
+              <span>I have read and agree to the <a href="https://stakeable.finance/terms-of-service.html" class="tos-link" target="_blank">ToS</a></span>
+            </label>
+          </p>
+          <button id="disclaimer-button" class="nes-btn is-primary">Accept</button>
+        </div>
+      </form>
+    </dialog> -->
+
+  </div>
+
+<script>
+  const h = document.querySelector('head');
+  ['./assets/dialog-polyfill.css'].forEach(a => {
+    const l = document.createElement('link');
+    l.href = a;
+    l.rel = 'stylesheet';
+    h.appendChild(l);
+  })
+</script>
+
+
+</body></html>

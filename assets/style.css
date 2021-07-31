@@ -1,0 +1,360 @@
+@font-face {
+  font-family: 'Arcadepix';
+  src: url('Arcadepix.eot');
+  src: url('Arcadepix.eot?#iefix')
+      format('embedded-opentype'),
+    url('Arcadepix.woff2') format('woff2'),
+    url('Arcadepix.woff') format('woff'),
+    url('Arcadepix.ttf') format('truetype'),
+    url('Arcadepix.svg#Arcadepix') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 50px 10px;
+
+  background: linear-gradient(90deg, #fff 20px, transparent 1%) 50%,
+    linear-gradient(#fff 20px, transparent 1%) 50%, #e2e2e2;
+  background-size: 22px 22px;
+  margin: 0;
+  font-family: 'Arcadepix', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body:not(.web3) .web3true {
+  display: none;
+}
+
+a,
+a:hover,
+a:visited,
+a:active,
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover,
+a:focus {
+  color: #0d68c5;
+}
+
+a.classic,
+a.classic:hover,
+a.classic:visited,
+a.classic:active,
+a.classic:link {
+  color: #0d68c5;
+}
+
+a.classic:hover,
+a.classic:focus {
+  text-decoration: underline;
+}
+
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+  color: #333;
+  text-shadow: none;
+  /* Prevent inheritance from `body` */
+  background-color: #fff;
+  border: 0.05rem solid #fff;
+}
+
+.cover-container {
+  max-width: 42em;
+}
+
+/*
+ * Header
+ */
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 40px;
+}
+
+.masthead {
+  margin-bottom: 2rem;
+}
+
+.masthead-brand {
+  margin-bottom: 0;
+}
+
+.nav {
+  color: black;
+}
+
+.nav-masthead .nav-link {
+  background-color: transparent;
+  border-bottom: 0.25rem solid transparent;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+  border-bottom-color: rgba(255, 255, 255, 0.25);
+}
+
+.w700 {
+  font-weight: 700 !important;
+}
+
+.sblue {
+  color: #784fc3;
+}
+
+.sp {
+  line-height: 2;
+  font-size: 13px;
+  text-indent: 24px;
+  text-align: left;
+}
+
+.greeting {
+  font-size: 15px;
+  font-weight: 400;
+  padding-bottom: 50px;
+}
+
+.nav-masthead .nav-link + .nav-link {
+  margin-left: 1rem;
+}
+
+.nav-link {
+  padding: .5rem;
+}
+
+.nav-masthead .active {
+  border-bottom-color: #fff;
+}
+
+@media (min-width: 48em) {
+  .masthead-brand {
+    float: left;
+  }
+
+  .nav-masthead {
+    float: right;
+  }
+}
+
+h2 {
+  font-size: 28px;
+}
+
+/*
+ * Cover
+ */
+.cover {
+  padding: 4em 0rem;
+}
+
+.cover .btn-lg {
+  padding: 0.75rem 1.25rem;
+  font-weight: 700;
+}
+
+.cover-heading {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 37px;
+}
+
+/*
+ * Footer
+ */
+.footer-icon {
+  width: 35px;
+  height: 35px;
+}
+
+footer nav {
+  -webkit-box-align: center;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 0px;
+}
+
+footer a {
+  font-size: 15px;
+  font-weight: 700;
+  padding-left: 29px;
+  padding-right: 16px;
+}
+
+.mastfoot {
+  margin-top: 50px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.tos-text {
+  text-align: left;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.web3 .web3false {
+  display: none;
+}
+
+.yield-badge {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  font-size: 20px;
+}
+
+body.approved .not-approved-spend {
+  display: none;
+}
+
+body:not(.approved) .approved-spend {
+  display: none;
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.swapcard,
+.swapcard2 {
+  display: inline-block;
+  width: 300px;
+  /*height: 240px;*/
+  margin: 10px;
+}
+
+.nes-container {
+  background-color: white;
+}
+
+.nes-container--group {
+  padding: 0;
+}
+.nes-container--group .card {
+  background-color: white;
+}
+
+.nescard {
+  width: 340px;
+  margin-bottom: 10px;
+}
+
+.row-cards {
+  justify-content: space-around;
+}
+
+.home .swapcard {
+  /*height: 175px;*/
+}
+
+.home .swapcard2 {
+  /*height: 115px;*/
+}
+
+.tokenpair {
+  margin-bottom: 15px;
+}
+
+.noborder {
+  border-radius: 0px !important;
+}
+
+.token1,
+.token2 {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  border-radius: 99px;
+  border: 3px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  background: #000;
+  background-size: cover !important;
+}
+
+.token2 {
+  position: relative;
+  right: 8px;
+}
+
+.token1 {
+  position: relative;
+  left: 8px;
+  z-index: 99;
+}
+.icn {
+  height: 80px;
+}
+
+.top-m20 {
+  margin-top: 20px;
+}
+
+.bottom-m20 {
+  margin-bottom: 20px;
+}
+
+.no-pad {
+  padding: 0px !important;
+}
+
+.card-link + .card-link {
+  margin-left: 0px;
+}
+.farm-btn {
+  width: 120px;
+}
+
+.apy0 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.nes-dialog {
+  max-width: 600px;
+}
+
+.tos-link {
+  color: #007bff !important;
+}
+
+.v-hidden {
+  visibility: hidden;
+}
+
+h2.card-text + h2.card-text {
+  padding-top: 0px;
+  font-size: 20px;
+}
+
+.talign-left {
+  text-align: left;
+}
+
+.faq .nes-container {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.faq .nes-container .title {
+  color: purple;
+}
+
+.faq h2 {
+  text-align: left;
+  margin-bottom: 20px;
+}
