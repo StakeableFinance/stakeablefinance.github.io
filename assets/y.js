@@ -143,7 +143,7 @@ function stake(until) {
 
     var contract = new web3.eth.Contract(tokenABI, tokenAddress);
     var now = Date.now()/1000
-    var days = Math.ceil((until-now)/60/60/24)
+    var days = Math.floor((until-now)/60/60/24)
     
     if (confirm('You will stake '+unlockedAmount+' of your STAKE tokens for a duration of '+days+' days. You will not be able to withdraw your tokens before! Tokens will be locked by the smart contract, and there is no way to unlock them until the staking period of '+days+' days expires. Proceed and  stake (lock-up) tokens for '+days+' days?')) {
         contract.methods.stake(unlockedAmount.mul(1e9).toString(), until).send({from: bscaddress},  function(err, transactionHash) {
