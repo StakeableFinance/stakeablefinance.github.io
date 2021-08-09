@@ -121,7 +121,7 @@ async function setBalances(){
         contract.methods.lockedUntil(bscaddress).call( function(error, result){
             if (!result) result = 0
             lockedUntil = parseInt(result)
-            if (lockedUntil && lockedAmount) {
+            if (lockedUntil && lockedAmount.toNumber()) {
                 $('.lockedUntil').text(new Date(lockedUntil*1000).toLocaleDateString('en-UK'))
     
                 if (lockedUntil < Date.now()/1000) {
