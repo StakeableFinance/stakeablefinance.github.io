@@ -117,20 +117,20 @@ async function setBalances(){
         if (!result) result = 0
         lockedAmount = new Decimal(result).dividedBy(1e9)
         $('.lockedAmount').animateNumbers(parseInt(lockedAmount))
-	});
 
-    contract.methods.lockedUntil(bscaddress).call( function(error, result){
-        if (!result) result = 0
-        lockedUntil = parseInt(result)
-        if (lockedUntil) {
-            $('.lockedUntil').text(new Date(lockedUntil*1000).toLocaleDateString('en-UK'))
-
-            if (lockedUntil < Date.now()/1000) {
-                $('.unstake').removeClass('d-none')
+        contract.methods.lockedUntil(bscaddress).call( function(error, result){
+            if (!result) result = 0
+            lockedUntil = parseInt(result)
+            if (lockedUntil && lockedAmount) {
+                $('.lockedUntil').text(new Date(lockedUntil*1000).toLocaleDateString('en-UK'))
+    
+                if (lockedUntil < Date.now()/1000) {
+                    $('.unstake').removeClass('d-none')
+                }
+            } else {
+                $('.lockedUntil').text('NaN')
             }
-        } else {
-            $('.lockedUntil').text('NaN')
-        }
+        });
 	});
 }
 
