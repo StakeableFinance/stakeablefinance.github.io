@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=500, initial-scale=1">
   <title>Stakeable - A DeFi staking ecosystem on BSC &#128136;</title>
-  <link rel="apple-touch-icon" href="./assets/stakeable.png">
+  <link rel="apple-touch-icon" href="./assets/logo.png">
   <link rel="icon" href="./assets/stakeable.ico">
   <meta name="theme-color" content="#fff">
   <meta name="description" content="Stakeable is a simple, yet powerful DeFi staking ecosystem on Binance Smart Chain. Use STAKE tokens to earn up to 309.83% APY.">
@@ -101,7 +101,7 @@
       <div class="row row-cards">
         <div class="nes-container nescard col-sm mx-2">
           <h6 class="card-subtitle mb-2">STAKE Price</h6>
-          <h2 class="card-text"><span class="w700 sblue tokenprice">$0.0000116441</span></h2>
+          <h2 class="card-text"><span class="w700 sblue tokenprice">$0.00037</span></h2>
         </div>
 
         
@@ -114,12 +114,12 @@
       <div class="row row-cards">
         <div class="nes-container nescard col-sm mx-2">
             <h6 class="card-subtitle mb-2">Market Cap</h6>
-            <h2 class="card-text"><span class="w700 sblue mcap">$11,644</span></h2>
+            <h2 class="card-text"><span class="w700 sblue mcap">$370,892</span></h2>
           </div>
     
           <div class="nes-container nescard col-sm mx-2">
             <h6 class="card-subtitle mb-2">Total Staked</h6>
-            <h2 class="card-text"><span class="w700 sblue valuestaked">$3,513</span></h2>
+            <h2 class="card-text"><span class="w700 sblue valuestaked">$113,061</span></h2>
           </div>
       </div>
 
@@ -140,10 +140,10 @@
   
         <div class="row nes-container bottom-m20 sp">
           <p style="text-align: left">
-            Stakeable Finance is a simple yet powerful smart contract on Binance Smart Chain. It was deployed with one single intention: to create a staking mechanism offering some of the most attractive yields in DeFi.
+            Stakeable Finance is a simple yet powerful staking smart contract on Binance Smart Chain. It was deployed with one single intention: to create a staking mechanism that offers some of the most attractive yields in DeFi.
           </p>
           <p style="text-align: left">
-            90% of supply was minted to serve as rewards for staking. To farm rewards, you need to purchase Stakeable (STAKE) tokens, lock them for your desired period of time and receive back the initial amount plus yield after the lock-up period expires.
+            90% of supply was minted to serve as rewards for staking. To farm rewards, you need to purchase Stakeable (STAKE) tokens and lock them for your desired period of time. After the lock-up period expires, you'll receive the initial amount plus yield.
           </p>
         </div>
       </main>
@@ -291,12 +291,17 @@
 
       <div class="nes-container with-title is-rounded">
         <p class="title">Who is behind Stakeable?</p>
-        <p>Stakeable was initially developed by a team of 3 devs from Switzerland. The developers decided to renounce the contract, burn all LP tokens and leave the project to the community.</p>
+        <p>Stakeable was initially developed by developers from Switzerland. The developers decided to renounce the contract, burn all LP tokens and leave the project to the community.</p>
       </div>
 
       <div class="nes-container with-title is-rounded">
         <p class="title">What was the presale price for Stakeable?</p>
         <p>There wasn’t a presale. 7.5% of tokens were made public on PCS and approx. 90% of tokens are owned by the ZERO-address, to be used as staking rewards.</p>
+      </div>
+
+      <div class="nes-container with-title is-rounded">
+        <p class="title">Why is the contract selling 50,000 STAKE tokens from time to time?</p>
+        <p>10% of each transaction goes towards liquidity. The contract sells the collected fee tokens in batches of 50,000 (to avoid dumping the price) and locks the BNB as liquidity.</p>
       </div>
 
 
@@ -355,6 +360,11 @@
       <div class="nes-container with-title is-rounded">
         <p class="title">My rewards are only X% per day instead of Y%, why?</p>
         <p>The yield is not linear! Your rewards accelerate with each passing day towards the final day of your staking period! You can be sure however, that you'll receive the amount as you "signed up for" on the day of unstaking!</p>
+      </div>
+
+      <div class="nes-container with-title is-rounded">
+        <p class="title">What is the yield formula at a given day?</p>
+        <p>The formula for yield after day X is: YIELD = (1 + (1/540 * (X/330 + 1)))^X - 1</p>
       </div>
 
       <h2>Project</h2>
