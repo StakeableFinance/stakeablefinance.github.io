@@ -27,7 +27,7 @@ $(document).ready(function() {
     $('.unlockedAmount').animateNumbers(parseInt(unlockedAmount))
     for (var i = 0; i<pools.length; i++) {
         yields.push(((1+(1/dailyApy * (pools[i]/bonusApy+1)))**pools[i]-1))
-        $('.pool'+(i+1)+'final').animateNumbers(parseInt(unlockedAmount+yields[i]*unlockedAmount));
+        $('.pool'+(i+1)+'final').animateNumbers(parseInt(unlockedAmount)+parseInt(yields[i]*unlockedAmount));
     }
     updateYield()
     setTokenPrice()
@@ -103,7 +103,7 @@ async function setBalances(){
         $('.unlockedAmount').animateNumbers(parseInt(unlockedAmount))
 
         pools.forEach(function(pool, i) {
-            $('.pool'+(i+1)+'final').animateNumbers(parseInt(unlockedAmount+yields[i]*unlockedAmount));
+            $('.pool'+(i+1)+'final').animateNumbers(parseInt(unlockedAmount)+parseInt(yields[i]*unlockedAmount));
         })
 	});
 
