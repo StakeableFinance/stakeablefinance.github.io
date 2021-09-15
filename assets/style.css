@@ -11,6 +11,9 @@
   font-style: normal;
   font-display: swap;
 }
+* {
+  scroll-behavior: smooth;
+}
 
 html {
   height: 100%;
@@ -81,9 +84,9 @@ a.classic:focus {
  * Header
  */
 .logo {
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 40px;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 30px;
 }
 
 .masthead {
@@ -152,7 +155,7 @@ a.classic:focus {
 }
 
 h2 {
-  font-size: 28px;
+  font-size: 1.25rem;
 }
 
 /*
@@ -171,7 +174,7 @@ h2 {
   margin-top: 15px;
   margin-bottom: 20px;
   font-weight: 700;
-  font-size: 37px;
+  font-size: 1.5rem;
 }
 
 /*
@@ -210,7 +213,64 @@ footer a {
 .web3 .web3false {
   display: none;
 }
+#walletaddress {
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+.notActive {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+}
+#networkContainer {
+  top: 0;
+  left: 0;
+  background: #ff001d;
+  color: #FFF;
+  padding: 4px 12px;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 99999;
+  margin-bottom:10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  font-size: 1rem;
+}
+.swal2-container {
+  z-index: 999999 !important;
+}
+.flexcolumn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.unselectable {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.lead {
+  width:100%;
+  font-size: 1rem;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.inner.cover.about {
+  margin-left:auto;
+  margin-right:auto;
+  
+}
 .yield-badge {
   position: absolute;
   right: -10px;
@@ -240,6 +300,20 @@ body:not(.approved) .approved-spend {
 
 .nes-container {
   background-color: white;
+  padding: 1.5rem 1.5rem;
+}
+@media screen and (max-width:700px) {
+  #walletaddress, .nescard, .inner.cover.about {
+    width: 80%;
+  }
+  #networkContainer {
+    width:85%;
+    font-size:0.8rem;
+  }
+  .lead {
+    font-size: 0.8rem;
+    justify-content: space-evenly;
+  }
 }
 
 .nes-container--group {
@@ -258,13 +332,13 @@ body:not(.approved) .approved-spend {
   justify-content: space-around;
 }
 
-.home .swapcard {
+/* .home .swapcard { */
   /*height: 175px;*/
-}
+/* } */
 
-.home .swapcard2 {
+/* .home .swapcard2 { */
   /*height: 115px;*/
-}
+/* } */
 
 .tokenpair {
   margin-bottom: 15px;
